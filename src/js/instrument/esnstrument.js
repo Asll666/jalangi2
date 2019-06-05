@@ -477,7 +477,7 @@ if (typeof J$ === 'undefined') {
         if (!Config.INSTR_WRITE || Config.INSTR_WRITE(name, node)) {
             printIidToLoc(node);
             var ret = replaceInExpr(
-                logWriteFunName + "(" + RP + "1, " + RP + "2, " + RP + "3, " + RP + "4," + (createBitPattern(isGlobal,isScriptLocal,isDeclaration)) + ")",
+                logWriteFunName + "(" + RP + "1, " + RP + "2, " + RP + "3, " + RP + "2," + (createBitPattern(isGlobal,isScriptLocal,isDeclaration)) + ")",
                 getIid(),
                 name,
                 val,
@@ -851,9 +851,9 @@ if (typeof J$ === 'undefined') {
         printIidToLoc(node);
         var ret;
 
-        if (isAssign)
+        if (isAssign)//change 3 -> 2
             ret = replaceInStatement(
-                RP + "1 = " + logInitFunName + "(" + RP + "2, " + RP + "3, " + RP + "4, " + createBitPattern(isArgumentSync, false, isCatchParam) + ")",
+                RP + "1 = " + logInitFunName + "(" + RP + "2, " + RP + "2, " + RP + "4, " + createBitPattern(isArgumentSync, false, isCatchParam) + ")",
                 lhs,
                 getIid(),
                 name,
@@ -861,7 +861,7 @@ if (typeof J$ === 'undefined') {
             );
         else
             ret = replaceInStatement(
-                logInitFunName + "(" + RP + "1, " + RP + "2, " + RP + "3, " + createBitPattern(isArgumentSync, false, isCatchParam) + ")",
+                logInitFunName + "(" + RP + "1, " + RP + "2, " + RP + "2, " + createBitPattern(isArgumentSync, false, isCatchParam) + ")",
                 getIid(),
                 name,
                 val
