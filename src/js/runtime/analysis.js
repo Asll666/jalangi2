@@ -200,6 +200,7 @@ if (typeof J$ === 'undefined') {
             popSwitchKey();
         }
     }
+    sandbox.callFunExport = callFun;
 
     function invokeFun(iid, base, f, args, isConstructor, isMethod) {
         var aret, skip = false, result;
